@@ -1,0 +1,20 @@
+version: "3.0"
+
+services:
+ faas-gateway:
+   build:
+     context: ./faas-gateway
+   ports:
+     - "8080:80"
+   volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+     - ./faas-gateway:/go/src/github.com/modfin/faas-scaffold/faas-gateway
+
+ a-service:
+   build:
+     context: ./aservice
+   labels:
+     - "faas.name=aservice"
+     - "faas.port=8080"
+   volumes:
+     - ./aservice:/go/src/github.com/modfin/faas-scaffold/aservice

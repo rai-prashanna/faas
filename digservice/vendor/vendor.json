@@ -1,6 +1,73 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": [],
-	"rootPath": "github.com/modfin/faas-scaffold/aservice"
+	"package": [
+		{
+			"path": "app",
+			"revision": ""
+		},
+		{
+			"path": "app/config",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "oK0bJkEgq+zNzGEdU4j9AQcPbEs=",
+			"path": "github.com/sparrc/go-ping",
+			"revision": "4e5b6552494c8005c60de6c60b50ebaefc69e592",
+			"revisionTime": "2019-06-05T20:23:35Z"
+		},
+		{
+			"checksumSHA1": "4rZ8D9GLDvy+6S940nMs75DvyfA=",
+			"path": "golang.org/x/net/bpf",
+			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
+			"revisionTime": "2019-07-23T18:48:14Z"
+		},
+		{
+			"checksumSHA1": "j5FGJYl3LlrNQ3745UWjjAeyHy0=",
+			"path": "golang.org/x/net/icmp",
+			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
+			"revisionTime": "2019-07-23T18:48:14Z"
+		},
+		{
+			"checksumSHA1": "8oJoT8rfokzpkJ19eNhRs2JgRxI=",
+			"path": "golang.org/x/net/internal/iana",
+			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
+			"revisionTime": "2019-07-23T18:48:14Z"
+		},
+		{
+			"checksumSHA1": "y+lniFh+zLSiq02AFdJMPiakpFM=",
+			"path": "golang.org/x/net/internal/socket",
+			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
+			"revisionTime": "2019-07-23T18:48:14Z"
+		},
+		{
+			"checksumSHA1": "ciO3wSSnu3Eb+VlUUix9wTdqs0A=",
+			"path": "golang.org/x/net/ipv4",
+			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
+			"revisionTime": "2019-07-23T18:48:14Z"
+		},
+		{
+			"checksumSHA1": "m6+REhxOLVDET5J+16UKG496iV8=",
+			"path": "golang.org/x/net/ipv6",
+			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
+			"revisionTime": "2019-07-23T18:48:14Z"
+		},
+		{
+			"checksumSHA1": "1qgk6DxZoFd3kn8oPNgpW9D7zUg=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "fc99dfbffb4e5ed5758a37e31dd861afe285406b",
+			"revisionTime": "2019-07-25T17:58:15Z"
+		},
+		{
+			"checksumSHA1": "0VuVvFVYdgGWAN/ZrRX8wTVgoDw=",
+			"path": "golang.org/x/sys/windows",
+			"revision": "fc99dfbffb4e5ed5758a37e31dd861afe285406b",
+			"revisionTime": "2019-07-25T17:58:15Z"
+		},
+		{
+			"path": "helpers",
+			"revision": ""
+		}
+	],
+	"rootPath": "github.com/modfin/faas-scaffold/digservice"
 }

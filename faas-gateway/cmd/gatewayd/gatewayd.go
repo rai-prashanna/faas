@@ -39,24 +39,16 @@ func someFunc() {
 	factorialproxy := httputil.NewSingleHostReverseProxy(factorialtarget)
 	digproxy := httputil.NewSingleHostReverseProxy(digtarget)
 	http.HandleFunc("/factorial", func(w http.ResponseWriter, req *http.Request) {
-		// https://stackoverflow.com/questions/38016477/reverse-proxy-does-not-work
-		// https://forum.golangbridge.org/t/explain-how-reverse-proxy-work/6492/7
-		// https://stackoverflow.com/questions/34745654/golang-reverseproxy-with-apache2-sni-hostname-error
-
 		req.Host = req.URL.Host // if you remove this line the request will fail... I want to debug why.
 
 		factorialproxy.ServeHTTP(w, req)
 	})
 	http.HandleFunc("/dig", func(w http.ResponseWriter, req *http.Request) {
-		// https://stackoverflow.com/questions/38016477/reverse-proxy-does-not-work
-		// https://forum.golangbridge.org/t/explain-how-reverse-proxy-work/6492/7
-		// https://stackoverflow.com/questions/34745654/golang-reverseproxy-with-apache2-sni-hostname-error
-
 		req.Host = req.URL.Host // if you remove this line the request will fail... I want to debug why.
 
 		digproxy.ServeHTTP(w, req)
 	})
-	err = http.ListenAndServe(":8080", nil)
+	err = http.ListenAndServe(":80", nil)
 	if err != nil {
 		panic(err)
 	}

@@ -10,3 +10,7 @@ cd src/app
 govendor sync
 cd ..
 go run main.go
+
+
+edit /etc/default/docker
+uncomment export http_proxy="http://127.0.0.1:3128/"

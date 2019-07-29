@@ -2,84 +2,64 @@ package app
 
 import (
 	"fmt"
-	"math/big"
-	"net"
-	"net/http"
-	"strconv"
-	"os"
-
+	"io"
 
 	// local packages
-	"helpers"
-	"app/config"
 
 	// vendor packages
+	"github.com/docker/docker/client"
+	"github.com/docker/docker/api/types/container"
+	"os"
 
-	"github.com/labstack/echo"
-	"github.com/labstack/echo/engine/standard"
+	"github.com/docker/docker/api/types"
+	"github.com/docker/docker/pkg/stdcopy"
+	"golang.org/x/net/context"
 )
 
 func RunApp() {
-	result := helpers.Sum("123", "456")
-	fmt.Printf("123 + 456 = %d\n", result)
-
-	cfg := config.Load()
-	port, _ := cfg["port"].(string)
-	host, _ := cfg["host"].(string)
-
-	e := echo.New()
-	e.GET("/hello", func(c echo.Context) error {
-		//return c.String(http.StatusOK, "Hello, World!")
-		// Get team and member from the query string
-		strnum := c.QueryParam("num")
-		num, _ := strconv.ParseInt(strnum, 10, 64)
-
-		var fact big.Int
-
-		result:= fact.MulRange(1,num)
-
-		return c.String(http.StatusOK, "result:" + result.String() + " ")
-
-	})
-
-	e.GET("/", func(c echo.Context) error {
-		//return c.String(http.StatusOK, "Hello, World!")
-		// Get team and member from the query string
-		
-		
-		return c.String(http.StatusOK, "hello my friend ")
-
-	})
-	e.GET("/dig", func(c echo.Context) error {
-			url := c.QueryParam("url")
-			ips:=dig(url)
-		s := []string{}
-		for _, ip := range ips {
-			fmt.Printf("google.com. IN A %s\n", ip.String())
-			s = append(s, fmt.Sprintf("%s", ip.String()))		}
-		return c.JSON(http.StatusCreated, ips)
-	})
-	fmt.Printf("Start running ... %s:%s\n", host, port)
-
-	e.Run(standard.New(host + ":" + port))
+	fmt.Printf("123 + 456 = %d\n", 2313)
+	main()
 }
 
-func show(c echo.Context) error {
-	// Get team and member from the query string
-	team := c.QueryParam("team")
-	member := c.QueryParam("member")
-	return c.String(http.StatusOK, "team:" + team + ", member:" + member)
-}
-
-func dig(url string) []net.IP{
-	ips, err := net.LookupIP(url)
+func main() {
+	ctx := context.Background()
+	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Could not get IPs: %v\n", err)
-		os.Exit(1)
+		panic(err)
 	}
-	//for _, ip := range ips {
-	//	fmt.Printf("google.com. IN A %s\n", ip.String())
-	//
-	//}
-	return ips
+
+	reader, err := cli.ImagePull(ctx, "docker.io/library/alpine", types.ImagePullOptions{})
+	if err != nil {
+		panic(err)
+	}
+	io.Copy(os.Stdout, reader)
+
+	resp, err := cli.ContainerCreate(ctx, &container.Config{
+		Image: "alpine",
+		Cmd:   []string{"echo", "hello world"},
+		Tty:   true,
+	}, nil, nil, "")
+	if err != nil {
+		panic(err)
+	}
+
+	if err := cli.ContainerStart(ctx, resp.ID, types.ContainerStartOptions{}); err != nil {
+		panic(err)
+	}
+
+	statusCh, errCh := cli.ContainerWait(ctx, resp.ID, container.WaitConditionNotRunning)
+	select {
+	case err := <-errCh:
+		if err != nil {
+			panic(err)
+		}
+	case <-statusCh:
+	}
+
+	out, err := cli.ContainerLogs(ctx, resp.ID, types.ContainerLogsOptions{ShowStdout: true})
+	if err != nil {
+		panic(err)
+	}
+
+	stdcopy.StdCopy(os.Stdout, os.Stderr, out)
 }

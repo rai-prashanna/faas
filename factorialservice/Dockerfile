@@ -33,3 +33,4 @@ RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
 RUN ln -s /usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 RUN chmod a+x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
+#CMD govendor init && govendor fetch -v +m && fswatch -config /fsw.yml

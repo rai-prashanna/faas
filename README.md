@@ -14,3 +14,11 @@ go run main.go
 
 edit /etc/default/docker
 uncomment export http_proxy="http://127.0.0.1:3128/"
+
+
+
+[{0.0.0.0 %!s(uint16=7070) %!s(uint16=7070) tcp}]
+
+
+'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 22c790841c5a

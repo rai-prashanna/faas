@@ -5,56 +5,30 @@ import (
 	// local packages
 
 	// vendor packages
+	"golang.org/x/net/context"
 	"github.com/docker/docker/client"
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/filters"
 
-	"golang.org/x/net/context"
 )
 
 func RunApp() {
-	fmt.Printf("123 + 456 = %d\n", 2313)
-	main()
+	fmt.Println("started ......\n")
+	clientID,port:=getSocketOfContainerByLabel("factorialservice")
+	fmt.Println("Key:", clientID, "Value:", port)
+
+	fmt.Printf("ended ......\n", 2313)
 }
 
-func main() {
 
-	//ctx := context.Background()
+
+func getSocketOfContainerByLabel(faasName string) (string,string){
 	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
 	if err != nil {
 		panic(err)
 	}
-
-	//hostBinding := nat.PortBinding{
-	//	HostIP:   "127.0.0.0",
-	//	HostPort: "8000",
-	//}
-	//
-	//containerPort, err := nat.NewPort("tcp", "80")
-	//if err != nil {
-	//	panic("Unable to get the port")
-	//}
-	//
-	//portBinding := nat.PortMap{containerPort: []nat.PortBinding{hostBinding}}
-	//
-	//cont, err := cli.ContainerCreate(ctx, &container.Config{
-	//	Image: "nginx",
-	//}, &container.HostConfig{
-	//		PortBindings: portBinding,
-	//	}, nil, "")
-	//if err != nil {
-	//	panic(err)
-	//}
-	//fmt.Printf("Container %s is started", cont.ID)
-	//containers, err := cli.ContainerList(context.Background(), types.ContainerListOptions{})
-	//{"label":{"faas.name":"factorialservice"}}
-//	containers, err := cli.ContainerList(context.Background(), types.ContainerListOptions{map[string][]string{"label": {"faas.name:factorialservice"}}})
-//	containers, err := cli.ListContainers(types.ListContainersOptions{All: true, Filters: map[string][]string{"label": {"faas.name:factorialservice"}}})
 	filters := filters.NewArgs()
-	filters.Add("label", "faas.name=factorialservice")
-	filters.Add("label", "faas.port=7070")
-
-	//"faas.name": "factorialservice"
+	filters.Add("label", "faas.name="+faasName)
 	containers, err := cli.ContainerList(context.Background(), types.ContainerListOptions{
 		Size:    true,
 		All:     true,
@@ -66,22 +40,15 @@ func main() {
 	}
 
 	if len(containers) > 0 {
-		for _, container := range containers {
-			fmt.Printf("%s %s\n", container.ID[:10], container.ID)
-			r, err := cli.ContainerInspect(context.Background(), container.ID)
-			//d := json.NewDecoder(r)
-			if err != nil {
-				panic(err)
-			}
-			//pnetworks := r.NetworkSettings   ContainerJSONBase.HostConfig.Binds
-			fmt.Printf("%s %s\n", r.NetworkSettings)
-			//fmt.Printf("%s %s\n", d)
+		first_container :=containers[0]
+		labels := first_container.Labels
+		// fmt.Println(containers[0].ID.s)
+	//	fmt.Println(first_container.ID[:10],labels["faas.port"])
 
-		}
+		return first_container.ID[:10],labels["faas.port"]
 	} else {
 		fmt.Println("There are no containers running")
+		fmt.Println("you need to implement logic to launch container")
 	}
-
-
+	return "",""
 }
-

@@ -26,6 +26,7 @@ $ docker-compose up
 $ use this url on web browser (http://localhost:8080/factorial?num=3 or http://localhost:8080/dig?url=www.wwe.com)
 ```
 [http://localhost:8080/factorial?num=3](http://localhost:8080/factorial?num=3)
+<br />
 [http://localhost:8080/dig?url=www.wwe.com](http://localhost:8080/dig?url=www.wwe.com)
 
 
@@ -33,7 +34,10 @@ $ use this url on web browser (http://localhost:8080/factorial?num=3 or http://l
 
 ### little demo
 
-![alt text](https://github.com/rai-prashanna/FXApi/blob/master/output.png)
+![alt text](https://github.com/rai-prashanna/faas/blob/master/output1.png)
+<br />
+![alt text](https://github.com/rai-prashanna/faas/blob/master/output2.png)
+
 
 
 

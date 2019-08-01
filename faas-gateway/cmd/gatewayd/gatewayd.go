@@ -48,7 +48,7 @@ func someFunc() {
 
 		digproxy.ServeHTTP(w, req)
 	})
-	err = http.ListenAndServe(":80", nil)
+	err = http.ListenAndServe(":8090", nil)
 	if err != nil {
 		panic(err)
 	}

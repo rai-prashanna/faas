@@ -48,8 +48,8 @@ $ use this url on web browser (http://localhost:8080/factorial?num=3 or http://l
 
 ## License
 
-[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rai-prashanna/FXApi/blob/master/LICENSE)
-This project is licensed under the MIT License - see the [LICENSE.md](http://license.md/) file for details
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rai-prashanna/faas/blob/master/LICENSE)
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/rai-prashanna/faas/blob/master/LICENSE) file for details
 
 ## Acknowledgments
 

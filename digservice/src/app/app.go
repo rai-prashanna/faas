@@ -2,10 +2,9 @@ package app
 
 import (
 	"errors"
-	"fmt"
 	"net"
 	"net/http"
-	"os"
+	"log"
 
 	// local packages
 	// vendor packages
@@ -19,29 +18,25 @@ func RunApp() {
 
 	ip, err := externalIP()
 	if err != nil {
-		fmt.Println(err)
+		log.Fatal(err)
 	}
-	fmt.Println(ip)
-
+	log.Println("successfully found ip of dig-service host")
 	e := echo.New()
 	e.GET("/dig", func(c echo.Context) error {
 		url := c.QueryParam("url")
+		log.Println("received request from proxy into dig-service")
 		ips:=dig(url)
 		return c.JSON(http.StatusCreated, ips)
 	})
-
-	fmt.Printf("dig service running ... %s:%s\n", ip, port)
-
+	log.Printf("dig service up and running ... %s:%s\n", ip, port)
 	e.Run(standard.New(ip + ":" + port))
-
 }
 
 
 func dig(url string) []net.IP{
 	ips, err := net.LookupIP(url)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Could not get IPs: %v\n", err)
-		os.Exit(1)
+		log.Fatalf("Could not get IPs: %v\n",err)
 	}
 	return ips
 }

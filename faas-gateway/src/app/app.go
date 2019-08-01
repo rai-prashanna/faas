@@ -1,7 +1,6 @@
 package app
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"net/http/httputil"
@@ -16,9 +15,9 @@ import (
 )
 
 func RunApp() {
-	fmt.Println("started ......\n")
+	log.Println("Starting FAAS-GATEWAY Service")
 	ProxyHandlar()
-	fmt.Printf("ended ......\n", 2313)
+	log.Println("Stoping FAAS-GATEWAY Service")
 }
 
 
@@ -45,8 +44,8 @@ func getSocketOfContainerByLabel(faasName string) (string,string){
 		labels := first_container.Labels
 		return first_container.ID[:12],labels["faas.port"]
 	} else {
-		fmt.Println("There are no containers running")
-		fmt.Println("you need to implement logic to launch container")
+		log.Println("There are no containers running")
+		log.Println("you need to implement logic to launch container")
 	}
 	return "",""
 }
@@ -54,37 +53,40 @@ func getSocketOfContainerByLabel(faasName string) (string,string){
 
 
 func ProxyHandlar() {
+var listenerPort string = "80"
 	http.HandleFunc("/factorial", func(w http.ResponseWriter, req *http.Request) {
-		req.Host = req.URL.Host // if you remove this line the request will fail... I want to debug why.
+		req.Host = req.URL.Host
 		factorialtargetIP, factorialtargetport := getSocketOfContainerByLabel("factorialservice")
 		factorialtargeturl := "http://"+factorialtargetIP+":"+factorialtargetport
-		log.Println("forwarding to factorial proxy")
-		log.Println(factorialtargeturl)
-
+		log.Println("suceessfully found factorial-service ")
 		factorialtarget, err := url.Parse(factorialtargeturl)
 		if err != nil {
 			log.Fatal(err)
 		}
 		factorialproxy := httputil.NewSingleHostReverseProxy(factorialtarget)
 		factorialproxy.ServeHTTP(w, req)
-
+		log.Println("forwarded incoming request to factorial-service")
 
 	})
 	http.HandleFunc("/dig", func(w http.ResponseWriter, req *http.Request) {
-		req.Host = req.URL.Host // if you remove this line the request will fail... I want to debug why.
+		req.Host = req.URL.Host
 		digtargetIP, digtargetport := getSocketOfContainerByLabel("digservice")
 		digtargeturl := "http://"+digtargetIP+":"+digtargetport
+		log.Println("suceessfully found dig-service ")
 		digtarget, err := url.Parse(digtargeturl)
 		if err != nil {
 			log.Fatal(err)
 		}
 		digproxy := httputil.NewSingleHostReverseProxy(digtarget)
 		digproxy.ServeHTTP(w, req)
+		log.Println("forwarded incoming request to dig-service")
 	})
-	err := http.ListenAndServe(":80", nil)
-
+	log.Println("listening incoming request on port 8080 ")
+	log.Println("hit http://localhost:8080/factorial?num=3 or")
+	log.Println("hit http://localhost:8080/dig?url=www.wwe.com")
+	err := http.ListenAndServe(":"+listenerPort, nil)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 }
 

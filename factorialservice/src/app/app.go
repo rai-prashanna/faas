@@ -2,16 +2,12 @@ package app
 
 import (
 	"errors"
-	"fmt"
 	"math/big"
 	"net"
 	"net/http"
 	"strconv"
 	"log"
-
-
 	// local packages
-//	"app/config"
 	// vendor packages
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/engine/standard"
@@ -23,29 +19,20 @@ func RunApp() {
 
 	ip, err := externalIP()
 	if err != nil {
-		fmt.Println(err)
+		log.Fatal(err)
 	}
-	fmt.Println(ip)
-
+	log.Println("successfully found ip of factorial-service host")
 
 	e := echo.New()
 	e.GET("/factorial", func(c echo.Context) error {
 		strnum := c.QueryParam("num")
 		num, _ := strconv.ParseInt(strnum, 10, 64)
-		log.Println("received request from proxy ito factorail proxy")
+		log.Println("received request from proxy into factorial-service")
 		var fact big.Int
-
 		result := fact.MulRange(1, num)
-		log.Println("the result ")
-		log.Println(result.String())
-
-
-
 		return c.String(http.StatusOK, "result:"+result.String()+" ")
-
 	})
-
-fmt.Printf("Factorail service running ... %s:%s\n", ip,port)
+	log.Printf("Factorial service up and running ... %s:%s\n", ip, port)
 	e.Run(standard.New(ip + ":" + port))
 
 }

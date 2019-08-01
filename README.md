@@ -1,5 +1,5 @@
 # SIMPLE Function as a service (FaaS) IMPLEMENTATION
-* [DETAILS](https://en.wikipedia.org/wiki/Function_as_a_service) 
+* [Function as a service](https://en.wikipedia.org/wiki/Function_as_a_service) 
 
 
 ## Getting Started

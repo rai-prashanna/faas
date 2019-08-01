@@ -72,7 +72,7 @@ func ProxyHandlar() {
 	})
 	http.HandleFunc("/dig", func(w http.ResponseWriter, req *http.Request) {
 		req.Host = req.URL.Host // if you remove this line the request will fail... I want to debug why.
-		digtargetIP, digtargetport := getSocketOfContainerByLabel("factorialservice")
+		digtargetIP, digtargetport := getSocketOfContainerByLabel("digservice")
 		digtargeturl := "http://"+digtargetIP+":"+digtargetport
 		digtarget, err := url.Parse(digtargeturl)
 		if err != nil {

@@ -11,14 +11,14 @@ services:
      - /var/run/docker.sock:/var/run/docker.sock
      - ./faas-gateway:/go/src/github.com/modfin/faas-scaffold/faas-gateway
 
-# dig-service:
-#   build:
-#     context: ./digservice
-#   labels:
-#     - "faas.name=digservice"
-#     - "faas.port=6060"
-#   volumes:
-#     - ./digservice:/go/src/github.com/modfin/faas-scaffold/digservice
+ dig-service:
+   build:
+     context: ./digservice
+   labels:
+     - "faas.name=digservice"
+     - "faas.port=6060"
+   volumes:
+     - ./digservice:/go/src/github.com/modfin/faas-scaffold/digservice
 
  factorial-service:
    build:

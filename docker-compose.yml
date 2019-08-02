@@ -14,6 +14,8 @@ services:
  dig-service:
    build:
      context: ./digservice
+   depends_on:
+     - faas-gateway
    labels:
      - "faas.name=digservice"
      - "faas.port=6060"
@@ -23,6 +25,8 @@ services:
  factorial-service:
    build:
      context: ./factorialservice
+   depends_on:
+     - faas-gateway
    labels:
      - "faas.name=factorialservice"
      - "faas.port=7070"

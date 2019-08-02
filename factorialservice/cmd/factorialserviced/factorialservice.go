@@ -10,7 +10,6 @@ import (
 	// local packages
 	// vendor packages
 	"github.com/labstack/echo"
-	"github.com/labstack/echo/engine/standard"
 
 )
 
@@ -33,8 +32,7 @@ func main() {
 		return c.String(http.StatusOK, "result:"+result.String()+" ")
 	})
 	log.Printf("Factorial service up and running ... %s:%s\n", ip, port)
-	e.Run(standard.New(ip + ":" + port))
-
+	e.Start(ip + ":" + port)
 }
 
 

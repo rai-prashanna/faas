@@ -9,7 +9,6 @@ import (
 	// local packages
 	// vendor packages
 	"github.com/labstack/echo"
-	"github.com/labstack/echo/engine/standard"
 
 )
 
@@ -29,7 +28,7 @@ func main() {
 		return c.JSON(http.StatusCreated, ips)
 	})
 	log.Printf("dig service up and running ... %s:%s\n", ip, port)
-	e.Run(standard.New(ip + ":" + port))
+	e.Start(ip + ":" + port)
 }
 
 

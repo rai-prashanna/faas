@@ -26,4 +26,4 @@ watch_paths: \n\
 watch_depth: 10 \n\
 " >> /fsw.yml
 
-CMD govendor init && govendor add +external && fswatch -config /fsw.yml
+CMD govendor init && govendor fetch -v +m && fswatch -config /fsw.yml

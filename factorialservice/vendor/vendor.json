@@ -3,136 +3,94 @@
 	"ignore": "test",
 	"package": [
 		{
-			"path": "app",
-			"revision": ""
-		},
-		{
-			"path": "app/config",
-			"revision": ""
-		},
-		{
-			"path": "factorialservice/config",
-			"revision": ""
-		},
-		{
-			"checksumSHA1": "40CRt7VD0ACe/xOYu6TuovNX5PM=",
-			"origin": "github.com/modfin/faas-scaffold/factorialservice/cmd/factorialserviced/vendor/github.com/labstack/echo",
+			"checksumSHA1": "ZL2823Dk+FOdYuuevdGbK8+lCVY=",
 			"path": "github.com/labstack/echo",
-			"revision": ""
-		},
-		{
-			"checksumSHA1": "arbpSvi1eBUSuSaEZap+osiG+P8=",
-			"origin": "github.com/modfin/faas-scaffold/factorialservice/cmd/factorialserviced/vendor/github.com/labstack/echo/context",
-			"path": "github.com/labstack/echo/context",
-			"revision": ""
-		},
-		{
-			"checksumSHA1": "ag5fKA9XYSXX34ysbQrO9OUF6qM=",
-			"origin": "github.com/modfin/faas-scaffold/factorialservice/cmd/factorialserviced/vendor/github.com/labstack/echo/engine",
-			"path": "github.com/labstack/echo/engine",
-			"revision": ""
-		},
-		{
-			"checksumSHA1": "LW6AaspQoMJfHGdzevCARW/luG4=",
-			"origin": "github.com/modfin/faas-scaffold/factorialservice/cmd/factorialserviced/vendor/github.com/labstack/echo/engine/standard",
-			"path": "github.com/labstack/echo/engine/standard",
-			"revision": ""
-		},
-		{
-			"checksumSHA1": "iDCjk9XfJyeiobpsw3E1UXXde/0=",
-			"origin": "github.com/modfin/faas-scaffold/factorialservice/cmd/factorialserviced/vendor/github.com/labstack/echo/log",
-			"path": "github.com/labstack/echo/log",
-			"revision": ""
+			"revision": "ed51400a8173aecbccf7803c25b45a32b82eb78d",
+			"revisionTime": "2019-08-02T05:20:33Z"
 		},
 		{
 			"checksumSHA1": "R6DzcBLEP0BONPpsyr+11N7xh5w=",
-			"origin": "github.com/modfin/faas-scaffold/factorialservice/cmd/factorialserviced/vendor/github.com/labstack/gommon/color",
 			"path": "github.com/labstack/gommon/color",
-			"revision": ""
+			"revision": "1f43c1e9c3eba1ab38ea5147084a00da1b0b0f3e",
+			"revisionTime": "2019-07-11T17:35:50Z"
 		},
 		{
-			"checksumSHA1": "HqO+MEV0RqgX+Hge8P8YB2wldgo=",
-			"origin": "github.com/modfin/faas-scaffold/factorialservice/cmd/factorialserviced/vendor/github.com/labstack/gommon/log",
+			"checksumSHA1": "NRXvF1Wn6fF9wcPOOv9MNSdDRaE=",
 			"path": "github.com/labstack/gommon/log",
-			"revision": ""
+			"revision": "1f43c1e9c3eba1ab38ea5147084a00da1b0b0f3e",
+			"revisionTime": "2019-07-11T17:35:50Z"
 		},
 		{
-			"checksumSHA1": "ugnSryGF6VPBb5s87QgoRH6730g=",
-			"origin": "github.com/modfin/faas-scaffold/factorialservice/cmd/factorialserviced/vendor/github.com/mattn/go-colorable",
+			"checksumSHA1": "TZ1sJQ03juGU53DFxbI1g7RgU50=",
 			"path": "github.com/mattn/go-colorable",
-			"revision": ""
+			"revision": "c52ace132bf44798a21f16fdafaaafbf329519e2",
+			"revisionTime": "2019-07-08T05:42:20Z"
 		},
 		{
-			"checksumSHA1": "xZuhljnmBysJPta/lMyYmJdujCg=",
-			"origin": "github.com/modfin/faas-scaffold/factorialservice/cmd/factorialserviced/vendor/github.com/mattn/go-isatty",
+			"checksumSHA1": "74gCzvJiE6bXX3i4vIVCYhffDHc=",
 			"path": "github.com/mattn/go-isatty",
-			"revision": ""
+			"revision": "da60ac76bf7019a8b005f8dd1ad9d1a0e6434155",
+			"revisionTime": "2019-07-08T05:43:38Z"
 		},
 		{
-			"checksumSHA1": "oK0bJkEgq+zNzGEdU4j9AQcPbEs=",
-			"path": "github.com/sparrc/go-ping",
-			"revision": "4e5b6552494c8005c60de6c60b50ebaefc69e592",
-			"revisionTime": "2019-06-05T20:23:35Z"
+			"checksumSHA1": "ua2PK6PDbNCyzxOmakS3BJoF8Co=",
+			"path": "github.com/valyala/bytebufferpool",
+			"revision": "cdfbe9377474227bb42120c1e22fd4433e7f69bf",
+			"revisionTime": "2018-09-05T18:22:47Z"
 		},
 		{
-			"checksumSHA1": "PQy6kV2rK5B3qtCRpANzgRQPnFs=",
-			"origin": "github.com/modfin/faas-scaffold/factorialservice/cmd/factorialserviced/vendor/github.com/valyala/fasttemplate",
+			"checksumSHA1": "2seEGCjQ/1dNc4E9g5+X0zA8w0I=",
 			"path": "github.com/valyala/fasttemplate",
-			"revision": ""
+			"revision": "8b5e4e491ab636663841c42ea3c5a9adebabaf36",
+			"revisionTime": "2019-03-15T20:00:27Z"
 		},
 		{
-			"checksumSHA1": "4rZ8D9GLDvy+6S940nMs75DvyfA=",
-			"path": "golang.org/x/net/bpf",
+			"checksumSHA1": "PGXERWr02Fit5t8t55+mjrSm0Sk=",
+			"path": "golang.org/x/crypto/acme",
+			"revision": "4def268fd1a49955bfb3dda92fe3db4f924f2285",
+			"revisionTime": "2019-07-01T08:59:26Z"
+		},
+		{
+			"checksumSHA1": "4xdwFGW/5zHCiLuUIrLq+vkVTuM=",
+			"path": "golang.org/x/crypto/acme/autocert",
+			"revision": "4def268fd1a49955bfb3dda92fe3db4f924f2285",
+			"revisionTime": "2019-07-01T08:59:26Z"
+		},
+		{
+			"checksumSHA1": "vL6l4FZWitsxht0uqA/GpDNkNNc=",
+			"path": "golang.org/x/net/idna",
 			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
 			"revisionTime": "2019-07-23T18:48:14Z"
 		},
 		{
-			"checksumSHA1": "GtamqiJoL7PGHsN454AoffBFMa8=",
-			"origin": "github.com/modfin/faas-scaffold/factorialservice/cmd/factorialserviced/vendor/golang.org/x/net/context",
-			"path": "golang.org/x/net/context",
-			"revision": ""
-		},
-		{
-			"checksumSHA1": "j5FGJYl3LlrNQ3745UWjjAeyHy0=",
-			"path": "golang.org/x/net/icmp",
-			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
-			"revisionTime": "2019-07-23T18:48:14Z"
-		},
-		{
-			"checksumSHA1": "8oJoT8rfokzpkJ19eNhRs2JgRxI=",
-			"path": "golang.org/x/net/internal/iana",
-			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
-			"revisionTime": "2019-07-23T18:48:14Z"
-		},
-		{
-			"checksumSHA1": "y+lniFh+zLSiq02AFdJMPiakpFM=",
-			"path": "golang.org/x/net/internal/socket",
-			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
-			"revisionTime": "2019-07-23T18:48:14Z"
-		},
-		{
-			"checksumSHA1": "ciO3wSSnu3Eb+VlUUix9wTdqs0A=",
-			"path": "golang.org/x/net/ipv4",
-			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
-			"revisionTime": "2019-07-23T18:48:14Z"
-		},
-		{
-			"checksumSHA1": "m6+REhxOLVDET5J+16UKG496iV8=",
-			"path": "golang.org/x/net/ipv6",
-			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
-			"revisionTime": "2019-07-23T18:48:14Z"
-		},
-		{
-			"checksumSHA1": "1qgk6DxZoFd3kn8oPNgpW9D7zUg=",
+			"checksumSHA1": "6aR7w8AeySHBwf96Jha1+cuh8Vw=",
 			"path": "golang.org/x/sys/unix",
-			"revision": "fc99dfbffb4e5ed5758a37e31dd861afe285406b",
-			"revisionTime": "2019-07-25T17:58:15Z"
+			"revision": "cbf593c0f2f39034e9104bbf77e2ec7c48c98fc5",
+			"revisionTime": "2019-08-01T00:40:32Z"
 		},
 		{
-			"checksumSHA1": "0VuVvFVYdgGWAN/ZrRX8wTVgoDw=",
-			"path": "golang.org/x/sys/windows",
-			"revision": "fc99dfbffb4e5ed5758a37e31dd861afe285406b",
-			"revisionTime": "2019-07-25T17:58:15Z"
+			"checksumSHA1": "CbpjEkkOeh0fdM/V8xKDdI0AA88=",
+			"path": "golang.org/x/text/secure/bidirule",
+			"revision": "342b2e1fbaa52c93f31447ad2c6abc048c63e475",
+			"revisionTime": "2018-12-15T17:52:45Z"
+		},
+		{
+			"checksumSHA1": "R9iBDY+aPnT+8pyRcqGjXq5QixA=",
+			"path": "golang.org/x/text/transform",
+			"revision": "342b2e1fbaa52c93f31447ad2c6abc048c63e475",
+			"revisionTime": "2018-12-15T17:52:45Z"
+		},
+		{
+			"checksumSHA1": "vv9EDuekZgHxFbh+0jJhB7jLZXY=",
+			"path": "golang.org/x/text/unicode/bidi",
+			"revision": "342b2e1fbaa52c93f31447ad2c6abc048c63e475",
+			"revisionTime": "2018-12-15T17:52:45Z"
+		},
+		{
+			"checksumSHA1": "8fzd6fnxrstdNSVg+Srhf1nKgek=",
+			"path": "golang.org/x/text/unicode/norm",
+			"revision": "342b2e1fbaa52c93f31447ad2c6abc048c63e475",
+			"revisionTime": "2018-12-15T17:52:45Z"
 		}
 	],
 	"rootPath": "github.com/modfin/faas-scaffold/factorialservice"

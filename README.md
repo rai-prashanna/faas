@@ -22,14 +22,22 @@ What things you need to install the software and how to install them
 ```
 $ git clone https://github.com/rai-prashanna/faas/
 $ cd <Working Directory>/faas/
+$ docker-compose build --no-cache
 $ docker-compose up
 $ use this url on web browser (http://localhost:8080/factorial?num=3 or http://localhost:8080/dig?url=www.wwe.com)
 ```
+
 [http://localhost:8080/factorial?num=3](http://localhost:8080/factorial?num=3)
 <br />
 [http://localhost:8080/dig?url=www.wwe.com](http://localhost:8080/dig?url=www.wwe.com)
 
+### Note
 
+```
+$ In first attempt of docker-compose up command,
+$ the process might be very slow. Since it downloads all dependencies from remote.
+$ So be patient to let docker-compose build images and docker-compose to run all services
+```
 
 
 ### little demo

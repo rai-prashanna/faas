@@ -34,7 +34,7 @@ $ use this url on web browser (http://localhost:8080/factorial?num=3 or http://l
 
 ### little demo
 
-![alt text](https://github.com/rai-prashanna/faas/blob/master/successful.png)
+![alt text](https://github.com/rai-prashanna/faas/blob/master/success.png)
 <br />
 ![alt text](https://github.com/rai-prashanna/faas/blob/master/output1.png)
 <br />

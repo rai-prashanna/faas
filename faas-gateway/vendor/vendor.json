@@ -7,62 +7,302 @@
 			"revision": ""
 		},
 		{
-			"path": "app/config",
+			"checksumSHA1": "9vIkKNaaSRELM/2nCkWOAdHD21M=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/Microsoft/go-winio",
+			"path": "github.com/Microsoft/go-winio",
 			"revision": ""
 		},
 		{
-			"checksumSHA1": "oK0bJkEgq+zNzGEdU4j9AQcPbEs=",
-			"path": "github.com/sparrc/go-ping",
-			"revision": "4e5b6552494c8005c60de6c60b50ebaefc69e592",
-			"revisionTime": "2019-06-05T20:23:35Z"
+			"checksumSHA1": "hgIAHvJxD+yog1zQGS0rqRGGCWg=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/Microsoft/go-winio/pkg/guid",
+			"path": "github.com/Microsoft/go-winio/pkg/guid",
+			"revision": ""
 		},
 		{
-			"checksumSHA1": "4rZ8D9GLDvy+6S940nMs75DvyfA=",
-			"path": "golang.org/x/net/bpf",
-			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
-			"revisionTime": "2019-07-23T18:48:14Z"
+			"checksumSHA1": "ru5eKWdLzXfpNRL+Mi1bxbmY8DU=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/containerd/containerd/errdefs",
+			"path": "github.com/containerd/containerd/errdefs",
+			"revision": ""
 		},
 		{
-			"checksumSHA1": "j5FGJYl3LlrNQ3745UWjjAeyHy0=",
-			"path": "golang.org/x/net/icmp",
-			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
-			"revisionTime": "2019-07-23T18:48:14Z"
+			"checksumSHA1": "Gj+xR1VgFKKmFXYOJMnAczC3Znk=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/distribution/digestset",
+			"path": "github.com/docker/distribution/digestset",
+			"revision": ""
 		},
 		{
-			"checksumSHA1": "8oJoT8rfokzpkJ19eNhRs2JgRxI=",
-			"path": "golang.org/x/net/internal/iana",
-			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
-			"revisionTime": "2019-07-23T18:48:14Z"
+			"checksumSHA1": "QRxPMM7EjKnrZvhpRwPQ2s/iqSo=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/distribution/reference",
+			"path": "github.com/docker/distribution/reference",
+			"revision": ""
 		},
 		{
-			"checksumSHA1": "y+lniFh+zLSiq02AFdJMPiakpFM=",
-			"path": "golang.org/x/net/internal/socket",
-			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
-			"revisionTime": "2019-07-23T18:48:14Z"
+			"checksumSHA1": "OvbnMCvUWjeV6iKz843oHyZMQHY=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/distribution/registry/api/errcode",
+			"path": "github.com/docker/distribution/registry/api/errcode",
+			"revision": ""
 		},
 		{
-			"checksumSHA1": "ciO3wSSnu3Eb+VlUUix9wTdqs0A=",
-			"path": "golang.org/x/net/ipv4",
-			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
-			"revisionTime": "2019-07-23T18:48:14Z"
+			"checksumSHA1": "igbQDk/nljfXjggzuXZLnmGtjOA=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api",
+			"path": "github.com/docker/docker/api",
+			"revision": ""
 		},
 		{
-			"checksumSHA1": "m6+REhxOLVDET5J+16UKG496iV8=",
-			"path": "golang.org/x/net/ipv6",
-			"revision": "ca1201d0de80cfde86cb01aea620983605dfe99b",
-			"revisionTime": "2019-07-23T18:48:14Z"
+			"checksumSHA1": "f+TTKzKEXv8hsfXQ+nmq673E2rE=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types",
+			"path": "github.com/docker/docker/api/types",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "/jF0HVFiLzUUuywSjp4F/piM7BM=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/blkiodev",
+			"path": "github.com/docker/docker/api/types/blkiodev",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "SdS6K499dnKOxOfrSa9BeZauQXE=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/container",
+			"path": "github.com/docker/docker/api/types/container",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "fF+hqcXRnyL/ZeDFP7b5HSa734Q=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/events",
+			"path": "github.com/docker/docker/api/types/events",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "wJRYkZcWXIsAH1fixZEl+LsV24s=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/filters",
+			"path": "github.com/docker/docker/api/types/filters",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "y1YAaXPtsvS3dxEzNE5LXhmYkno=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/image",
+			"path": "github.com/docker/docker/api/types/image",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "9OClWW7OCikgz4QCS/sAVcvqcWk=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/mount",
+			"path": "github.com/docker/docker/api/types/mount",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "00k6FhkdRZ+TEiPPsUPAY594bCw=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/network",
+			"path": "github.com/docker/docker/api/types/network",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "m4Jg5WnW75I65nvkEno8PElSXik=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/registry",
+			"path": "github.com/docker/docker/api/types/registry",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "OQEUS/2J2xVHpfvcsxcXzYqBSeY=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/strslice",
+			"path": "github.com/docker/docker/api/types/strslice",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "obLRjcwRhjoo/EIFw2CoDK1oPOc=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/swarm",
+			"path": "github.com/docker/docker/api/types/swarm",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "bZaUxSqqaFRghfaL1Z4b9W+duhE=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/swarm/runtime",
+			"path": "github.com/docker/docker/api/types/swarm/runtime",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "V8OZpLS8i1HfO4lAzUzEw2BgnfQ=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/time",
+			"path": "github.com/docker/docker/api/types/time",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "MZsgRjJJ0D/gAsXfKiEys+op6dE=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/versions",
+			"path": "github.com/docker/docker/api/types/versions",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "REnP4RB3EMCkMS1dw4N5WIZU/jg=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/api/types/volume",
+			"path": "github.com/docker/docker/api/types/volume",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "akrG7ojJtmMSGyE8M3VrIgxKJUg=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/client",
+			"path": "github.com/docker/docker/client",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "q4R77xtScr+W3m77Otw6kr34ktg=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/docker/errdefs",
+			"path": "github.com/docker/docker/errdefs",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "dDq9w/RbibsWDylY21r50jirJOQ=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/go-connections/nat",
+			"path": "github.com/docker/go-connections/nat",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "ga0PXcP3aI54ek2hQHmypI/HmSQ=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/go-connections/sockets",
+			"path": "github.com/docker/go-connections/sockets",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "KGILLnJybU/+xWJu8rgM4CpYT2M=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/go-connections/tlsconfig",
+			"path": "github.com/docker/go-connections/tlsconfig",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "uJpTEqskmHWciK0+gjsnpRHXq7k=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/docker/go-units",
+			"path": "github.com/docker/go-units",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "6VyMn387vNTCIxqwLuScKb+CDgQ=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/gogo/protobuf/proto",
+			"path": "github.com/gogo/protobuf/proto",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "CGj8VcI/CpzxaNqlqpEVM7qElD4=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/golang/protobuf/proto",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "aEiR2m3NGaMGTbUW5P+w5gKFyc8=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/golang/protobuf/ptypes",
+			"path": "github.com/golang/protobuf/ptypes",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "2/Xg4L9IVGQRJB8zCELZx7/Z4HU=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/golang/protobuf/ptypes/any",
+			"path": "github.com/golang/protobuf/ptypes/any",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "RE9rLveNHapyMKQC8p10tbkUE9w=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/golang/protobuf/ptypes/duration",
+			"path": "github.com/golang/protobuf/ptypes/duration",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "seEwY2xETpK9yHJ9+bHqkLZ0VMU=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/golang/protobuf/ptypes/timestamp",
+			"path": "github.com/golang/protobuf/ptypes/timestamp",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "Aulh7C5SVOA4Jzt5eHNH6197Mbk=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/konsorten/go-windows-terminal-sequences",
+			"path": "github.com/konsorten/go-windows-terminal-sequences",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "NUD1Gf00sYOP6RUk6iSYmFzogmQ=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/opencontainers/go-digest",
+			"path": "github.com/opencontainers/go-digest",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "Yd/Bw+xjDW+66s4mr4yaHFY/EeE=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/opencontainers/image-spec/specs-go",
+			"path": "github.com/opencontainers/image-spec/specs-go",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "jdbXRRzeu0njLE9/nCEZG+Yg/Jk=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/opencontainers/image-spec/specs-go/v1",
+			"path": "github.com/opencontainers/image-spec/specs-go/v1",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "I7hloldMJZTqUx6hbVDp5nk9fZQ=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/pkg/errors",
+			"path": "github.com/pkg/errors",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "+enshrlE9AS7iFQTrtHNWj4wAFw=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/github.com/sirupsen/logrus",
+			"path": "github.com/sirupsen/logrus",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "GtamqiJoL7PGHsN454AoffBFMa8=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/golang.org/x/net/context",
+			"path": "golang.org/x/net/context",
+			"revision": ""
 		},
 		{
 			"checksumSHA1": "1qgk6DxZoFd3kn8oPNgpW9D7zUg=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/golang.org/x/sys/unix",
 			"path": "golang.org/x/sys/unix",
-			"revision": "fc99dfbffb4e5ed5758a37e31dd861afe285406b",
-			"revisionTime": "2019-07-25T17:58:15Z"
+			"revision": ""
 		},
 		{
 			"checksumSHA1": "0VuVvFVYdgGWAN/ZrRX8wTVgoDw=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/golang.org/x/sys/windows",
 			"path": "golang.org/x/sys/windows",
-			"revision": "fc99dfbffb4e5ed5758a37e31dd861afe285406b",
-			"revisionTime": "2019-07-25T17:58:15Z"
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "dU5fToNngC22+3DsebkdYv+T3jE=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/google.golang.org/genproto/googleapis/rpc/status",
+			"path": "google.golang.org/genproto/googleapis/rpc/status",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "e0xLHThZgMNcuR7aFuY+pzuQVVU=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/google.golang.org/grpc/codes",
+			"path": "google.golang.org/grpc/codes",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "UgxkVy6e/BMqXrmS21WmcHtdcd4=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/google.golang.org/grpc/connectivity",
+			"path": "google.golang.org/grpc/connectivity",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "3hj3attJzO2iqArJeSNEW8diHqo=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/google.golang.org/grpc/grpclog",
+			"path": "google.golang.org/grpc/grpclog",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "K0PObzzd/BphqmUWVKlT5tYTKBk=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/google.golang.org/grpc/internal",
+			"path": "google.golang.org/grpc/internal",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "pF8iy9/Pmnt2a8sEAtYtOLQtdHE=",
+			"origin": "github.com/modfin/faas-scaffold/faas-gateway/src/app/vendor/google.golang.org/grpc/status",
+			"path": "google.golang.org/grpc/status",
+			"revision": ""
+		},
+		{
+			"path": "log",
+			"revision": ""
 		}
 	],
 	"rootPath": "github.com/modfin/faas-scaffold/faas-gateway"

@@ -5,27 +5,27 @@ services:
    build:
      context: ./faas-gateway
    ports:
-     - "8080:80"
+     - "9090:80"
 
    volumes:
      - /var/run/docker.sock:/var/run/docker.sock
      - ./faas-gateway:/go/src/github.com/modfin/faas-scaffold/faas-gateway
 
- dig-service:
-   build:
-     context: ./digservice
-   labels:
-     - "faas.name=digservice"
-     - "faas.port=6060"
-   volumes:
-     - ./digservice:/go/src/github.com/modfin/faas-scaffold/digservice
-
- factorial-service:
-   build:
-     context: ./factorialservice
-   labels:
-     - "faas.name=factorialservice"
-     - "faas.port=7070"
-   volumes:
-     - ./factorialservice:/go/src/github.com/modfin/faas-scaffold/factorialservice
+# dig-service:
+#   build:
+#     context: ./digservice
+#   labels:
+#     - "faas.name=digservice"
+#     - "faas.port=6060"
+#   volumes:
+#     - ./digservice:/go/src/github.com/modfin/faas-scaffold/digservice
+#
+# factorial-service:
+#   build:
+#     context: ./factorialservice
+#   labels:
+#     - "faas.name=factorialservice"
+#     - "faas.port=7070"
+#   volumes:
+#     - ./factorialservice:/go/src/github.com/modfin/faas-scaffold/factorialservice
 

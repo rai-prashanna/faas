@@ -27,9 +27,4 @@ watch_paths: \n\
 watch_depth: 10 \n\
 " >> /fsw.yml
 
-#CMD govendor init && govendor fetch -v +m && fswatch -config /fsw.yml
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
-RUN ln -s /usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
-RUN chmod a+x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+CMD govendor init && govendor add +external && fswatch -config /fsw.yml

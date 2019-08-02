@@ -16,7 +16,7 @@ triggers: \n\
   - '**/*.go' \n\
   env: \n\
     DEBUG: '1' \n\
-  cmd: go run /go/src/github.com/modfin/faas-scaffold/digservice/src/main.go \n\
+  cmd: go run /go/src/github.com/modfin/faas-scaffold/digservice/cmd/digserviced/digservice.go \n\
   shell: true \n\
   delay: 100ms \n\
   stop_timeout: 500ms \n\
@@ -28,8 +28,4 @@ watch_depth: 10 \n\
 " >> /fsw.yml
 
 
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
-RUN ln -s /usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
-RUN chmod a+x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+CMD govendor init && govendor add +external && fswatch -config /fsw.yml

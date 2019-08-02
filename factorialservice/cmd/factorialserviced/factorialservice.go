@@ -2,10 +2,11 @@ package main
 
 import (
 	"errors"
+	"math/big"
 	"net"
 	"net/http"
+	"strconv"
 	"log"
-
 	// local packages
 	// vendor packages
 	"github.com/labstack/echo"
@@ -14,31 +15,26 @@ import (
 )
 
 func main() {
-	var port string = "6060"
+	var port string = "7070"
 
 	ip, err := externalIP()
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Println("successfully found ip of dig-service host")
+	log.Println("successfully found ip of factorial-service host")
+
 	e := echo.New()
-	e.GET("/dig", func(c echo.Context) error {
-		url := c.QueryParam("url")
-		log.Println("received request from proxy into dig-service")
-		ips:=dig(url)
-		return c.JSON(http.StatusCreated, ips)
+	e.GET("/factorial", func(c echo.Context) error {
+		strnum := c.QueryParam("num")
+		num, _ := strconv.ParseInt(strnum, 10, 64)
+		log.Println("received request from proxy into factorial-service")
+		var fact big.Int
+		result := fact.MulRange(1, num)
+		return c.String(http.StatusOK, "result:"+result.String()+" ")
 	})
-	log.Printf("dig service up and running ... %s:%s\n", ip, port)
+	log.Printf("Factorial service up and running ... %s:%s\n", ip, port)
 	e.Run(standard.New(ip + ":" + port))
-}
 
-
-func dig(url string) []net.IP{
-	ips, err := net.LookupIP(url)
-	if err != nil {
-		log.Fatalf("Could not get IPs: %v\n",err)
-	}
-	return ips
 }
 
 

@@ -57,16 +57,16 @@ func ProxyHandlar() {
 	var listenerPort string = "80"
 	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 		req.Host = req.URL.Host
-		log.Printf("received request on host with url ... %s",req.RequestURI)
+		log.Printf("received request on proxy with url ...  %s  \n",req.RequestURI)
 		requestedurl := strings.Split(req.RequestURI, "?")
 
 		queryparam := requestedurl[1]
 		functionname := strings.Trim(requestedurl[0],"/")
 
-		log.Printf("lookup for %s service on ...",functionname)
+		log.Printf("lookup for %s service on ...\n",functionname)
 		targetIP, targetport := getSocketOfContainerByLabel(functionname)
 		targeturl := "http://"+targetIP+":"+targetport
-		log.Printf("suceessfully found %s service ",functionname)
+		log.Printf("suceessfully found %s service \n",functionname)
 
 		target, err := url.Parse(targeturl)
 		queryurl := "/?"+queryparam
@@ -79,7 +79,7 @@ func ProxyHandlar() {
 		req.URL=proxyqueryurl
 
 		proxy.ServeHTTP(w, req)
-		log.Printf("forwarded incoming request to % service",functionname)
+		log.Printf("forwarded incoming request to %s  \n",functionname)
 
 	})
 	log.Println("listening incoming request on port 8080 ")

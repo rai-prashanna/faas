@@ -16,7 +16,7 @@ triggers: \n\
   - '**/*.go' \n\
   env: \n\
     DEBUG: '1' \n\
-  cmd: tail -200f /var/log/syslog \n\
+  cmd: go run /go/src/github.com/modfin/faas-scaffold/faas-gateway/cmd/gatewayd/gatewayd.go \n\
   shell: true \n\
   delay: 100ms \n\
   stop_timeout: 500ms \n\

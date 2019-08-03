@@ -31,7 +31,7 @@ func main() {
 		result := fact.MulRange(1, num)
 		return c.String(http.StatusOK, "result:"+result.String()+" ")
 	})
-	log.Printf("Factorial service up and running ... %s:%s\n", ip, port)
+	log.Printf("Factorial service is up and running ... %s:%s\n", ip, port)
 	e.Start(ip + ":" + port)
 }
 

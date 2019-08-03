@@ -27,7 +27,7 @@ func main() {
 		ips:=dig(url)
 		return c.JSON(http.StatusCreated, ips)
 	})
-	log.Printf("dig service up and running ... %s:%s\n", ip, port)
+	log.Printf("dig service is up and running ... %s:%s\n", ip, port)
 	e.Start(ip + ":" + port)
 }
 

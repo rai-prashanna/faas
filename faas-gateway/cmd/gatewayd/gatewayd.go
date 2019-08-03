@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"log"
 	"net/http"
 	"net/http/httputil"
@@ -23,7 +24,7 @@ func main() {
 
 
 
-func getSocketOfContainerByLabel(faasName string) (string,string){
+func getSocketOfContainerByLabel(faasName string) (string,string,error){
 	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
 	if err != nil {
 		panic(err)
@@ -37,18 +38,18 @@ func getSocketOfContainerByLabel(faasName string) (string,string){
 		Filters: filters,
 	})
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	if len(containers) > 0 {
 		first_container :=containers[0]
 		labels := first_container.Labels
-		return first_container.ID[:12],labels["faas.port"]
+		return first_container.ID[:12],labels["faas.port"],nil
 	} else {
 		log.Println("There are no containers running")
 		log.Println("you need to implement logic to launch container")
 	}
-	return "",""
+	return "","",errors.New("SERVICE NOT FOUND ")
 }
 
 
@@ -64,7 +65,10 @@ func ProxyHandlar() {
 		functionname := strings.Trim(requestedurl[0],"/")
 
 		log.Printf("lookup for %s service on ...\n",functionname)
-		targetIP, targetport := getSocketOfContainerByLabel(functionname)
+		targetIP, targetport,err := getSocketOfContainerByLabel(functionname)
+		if err != nil {
+			log.Fatal(err)
+		}
 		targeturl := "http://"+targetIP+":"+targetport
 		log.Printf("suceessfully found %s service \n",functionname)
 

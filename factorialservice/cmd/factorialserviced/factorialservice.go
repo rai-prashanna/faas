@@ -23,7 +23,7 @@ func main() {
 	log.Println("successfully found ip of factorial-service host")
 
 	e := echo.New()
-	e.GET("/factorial", func(c echo.Context) error {
+	e.GET("/", func(c echo.Context) error {
 		strnum := c.QueryParam("num")
 		num, _ := strconv.ParseInt(strnum, 10, 64)
 		log.Println("received request from proxy into factorial-service")

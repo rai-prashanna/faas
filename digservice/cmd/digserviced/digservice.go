@@ -21,7 +21,7 @@ func main() {
 	}
 	log.Println("successfully found ip of dig-service host")
 	e := echo.New()
-	e.GET("/dig", func(c echo.Context) error {
+	e.GET("/", func(c echo.Context) error {
 		url := c.QueryParam("url")
 		log.Println("received request from proxy into dig-service")
 		ips:=dig(url)

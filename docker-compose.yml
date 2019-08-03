@@ -6,7 +6,6 @@ services:
      context: ./faas-gateway
    ports:
      - "8080:80"
-
    volumes:
      - /var/run/docker.sock:/var/run/docker.sock
      - ./faas-gateway:/go/src/github.com/modfin/faas-scaffold/faas-gateway
@@ -25,8 +24,6 @@ services:
  factorial-service:
    build:
      context: ./factorialservice
-   depends_on:
-     - faas-gateway
    labels:
      - "faas.name=factorialservice"
      - "faas.port=7070"

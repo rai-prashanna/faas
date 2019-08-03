@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"net/http/httputil"
 	"net/url"
+	"strings"
 
 	// local packages
 	// vendor packages
@@ -54,41 +55,46 @@ func getSocketOfContainerByLabel(faasName string) (string,string){
 
 func ProxyHandlar() {
 	var listenerPort string = "80"
-	http.HandleFunc("/factorial", func(w http.ResponseWriter, req *http.Request) {
+	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 		req.Host = req.URL.Host
-		factorialtargetIP, factorialtargetport := getSocketOfContainerByLabel("factorialservice")
-		factorialtargeturl := "http://"+factorialtargetIP+":"+factorialtargetport
-		log.Println("suceessfully found factorial-service ")
-		factorialtarget, err := url.Parse(factorialtargeturl)
+		log.Println("the url is ...")
+
+		log.Print(req.RequestURI)
+		resourceurl := strings.Split(req.RequestURI, "?")
+
+		queryparam := resourceurl[1]
+		functionname := strings.Trim(resourceurl[0],"/")
+
+		targetIP, targetport := getSocketOfContainerByLabel(functionname)
+		targeturl := "http://"+targetIP+":"+targetport
+		log.Println(targeturl)
+
+		log.Println("suceessfully found service ")
+		log.Println(targeturl)
+
+		target, err := url.Parse(targeturl)
+		queryurl := "/?"+queryparam
+		proxyqueryurl, err := url.Parse(queryurl)
+
 		if err != nil {
 			log.Fatal(err)
 		}
-		factorialproxy := httputil.NewSingleHostReverseProxy(factorialtarget)
-		factorialproxy.ServeHTTP(w, req)
-		log.Println("forwarded incoming request to factorial-service")
+		proxy := httputil.NewSingleHostReverseProxy(target)
+		req.URL=proxyqueryurl
+
+		proxy.ServeHTTP(w, req)
+		log.Println("forwarded incoming request to service")
 
 	})
-	http.HandleFunc("/dig", func(w http.ResponseWriter, req *http.Request) {
-		req.Host = req.URL.Host
-		digtargetIP, digtargetport := getSocketOfContainerByLabel("digservice")
-		digtargeturl := "http://"+digtargetIP+":"+digtargetport
-		log.Println("suceessfully found dig-service ")
-		digtarget, err := url.Parse(digtargeturl)
-		if err != nil {
-			log.Fatal(err)
-		}
-		digproxy := httputil.NewSingleHostReverseProxy(digtarget)
-		digproxy.ServeHTTP(w, req)
-		log.Println("forwarded incoming request to dig-service")
-	})
 	log.Println("listening incoming request on port 8080 ")
-	log.Println("hit http://localhost:8080/factorial?num=3 or")
-	log.Println("hit http://localhost:8080/dig?url=www.wwe.com")
+	log.Println("hit http://localhost:8080/factorialservice?num=3 or")
+	log.Println("hit http://localhost:8080/digservice?url=www.wwe.com")
 	err := http.ListenAndServe(":"+listenerPort, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
 }
+
 
 
 

@@ -2,10 +2,12 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"log"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
+	"regexp"
 	"strings"
 
 	// local packages
@@ -52,49 +54,57 @@ func getSocketOfContainerByLabel(faasName string) (string,string,error){
 	return "","",errors.New("SERVICE NOT FOUND ")
 }
 
-
-
+//  ^function\/:\./$
+var baseurlpattern = regexp.MustCompile(`^\/function\/:{1}`)
 func ProxyHandlar() {
 	var listenerPort string = "80"
 	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 		req.Host = req.URL.Host
 		log.Printf("received request on proxy with url ...  %s  \n",req.RequestURI)
-		requestedurl := strings.Split(req.RequestURI, "?")
+		if baseurlpattern.MatchString(req.RequestURI) {
+			split := baseurlpattern.Split(req.RequestURI, -1)
+			fmt.Println(split[1])
 
-		queryparam := requestedurl[1]
-		functionname := strings.Trim(requestedurl[0],"/")
 
-		log.Printf("lookup for %s service on ...\n",functionname)
-		targetIP, targetport,err := getSocketOfContainerByLabel(functionname)
-		if err != nil {
-			log.Fatal(err)
+			requestedurl := strings.Split(split[1], "?")
+
+			queryparam := requestedurl[1]
+			functionname := strings.Trim(requestedurl[0],"/")
+
+			log.Printf("lookup for %s service on ...\n",functionname)
+			targetIP, targetport,err := getSocketOfContainerByLabel(functionname)
+			if err != nil {
+				log.Fatal(err)
+			}
+			targeturl := "http://"+targetIP+":"+targetport
+			log.Printf("suceessfully found %s service \n",functionname)
+
+			target, err := url.Parse(targeturl)
+			queryurl := "/?"+queryparam
+			proxyqueryurl, err := url.Parse(queryurl)
+
+			if err != nil {
+				log.Fatal(err)
+			}
+			proxy := httputil.NewSingleHostReverseProxy(target)
+			req.URL=proxyqueryurl
+
+			proxy.ServeHTTP(w, req)
+			log.Printf("forwarded incoming request to %s  \n",functionname)
+		}else {
+			defaultMsg()
 		}
-		targeturl := "http://"+targetIP+":"+targetport
-		log.Printf("suceessfully found %s service \n",functionname)
-
-		target, err := url.Parse(targeturl)
-		queryurl := "/?"+queryparam
-		proxyqueryurl, err := url.Parse(queryurl)
-
-		if err != nil {
-			log.Fatal(err)
-		}
-		proxy := httputil.NewSingleHostReverseProxy(target)
-		req.URL=proxyqueryurl
-
-		proxy.ServeHTTP(w, req)
-		log.Printf("forwarded incoming request to %s  \n",functionname)
-
 	})
-	log.Println("listening incoming request on port 8080 ")
-	log.Println("hit http://localhost:8080/factorialservice?num=3 or")
-	log.Println("hit http://localhost:8080/digservice?url=www.wwe.com")
+	defaultMsg()
 	err := http.ListenAndServe(":"+listenerPort, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
 }
 
-
-
+func defaultMsg()  {
+	log.Println("listening incoming request on port 8080 ")
+	log.Println("hit http://localhost:8080/function/:factorialservice?num=3 or")
+	log.Println("hit http://localhost:8080/function/:digservice?url=www.wwe.com")
+}
 

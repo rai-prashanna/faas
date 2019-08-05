@@ -24,12 +24,12 @@ $ git clone https://github.com/rai-prashanna/faas/
 $ cd <Working Directory>/faas/
 $ docker-compose build --no-cache
 $ docker-compose up
-$ use this url on web browser (http://localhost:8080/factorialservice?num=3 or http://localhost:8080/digservice?url=www.wwe.com)
+$ use this url on web browser (http://localhost:8080/function/:factorialservice?num=3 or http://localhost:8080/function/:digservice?url=www.wwe.com)
 ```
 
-[http://localhost:8080/factorialservice?num=3](http://localhost:8080/factorialservice?num=3)
+[http://localhost:8080/function/:factorialservice?num=3](http://localhost:8080/function/:factorialservice?num=3)
 <br />
-[http://localhost:8080/digservice?url=www.wwe.com](http://localhost:8080/digservice?url=www.wwe.com)
+[http://localhost:8080/function/:digservice?url=www.wwe.com](http://localhost:8080/function/:digservice?url=www.wwe.com)
 
 ### Note
 

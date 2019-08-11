@@ -1,6 +1,12 @@
 # SIMPLE Function as a service (FaaS) IMPLEMENTATION
 * [Function as a service](https://en.wikipedia.org/wiki/Function_as_a_service) 
 
+# Background
+* So this docker thing, as well as ​ function as a service, FaaS, ​ seems to getting some traction. It would be
+  nice if we could have our own ​ FaaS ​ infrastructure in place instead of paying Amazon for it. There are
+  some alternatives out there e.g. OpenFaaS. But we have a bad case of “Not Invented Here” syndrome,
+  so we’d rather build it ourselves.
+
 
 ## Getting Started
 
